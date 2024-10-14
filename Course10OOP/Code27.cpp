@@ -1,0 +1,58 @@
+#include <iostream>
+
+using namespace std;
+
+class clsPerson
+{
+
+public:
+
+  virtual void Print()
+    
+  {
+        cout << "Hi, I'm a person!\n ";
+    
+  }
+
+};
+
+class clsEmployee : public clsPerson
+{
+public:
+    void Print()
+    {
+        cout << "Hi, I'm an employee.\n";
+    }
+};
+
+class clsStudent : public clsPerson
+{
+public:
+     void Print() 
+    {
+        cout << "Hi, I'm a student.\n";
+    }
+};
+
+
+int main()
+
+{
+
+    clsEmployee Employee1;
+    clsStudent  Student1;
+
+    Employee1.Print();
+    Student1.Print();
+
+
+    // Up Casting
+    clsPerson * Person1 = &Employee1;
+    clsPerson * Person2 = &Student1;
+
+    Person1->Print();
+    Person2->Print();
+
+
+    return 0;
+}
