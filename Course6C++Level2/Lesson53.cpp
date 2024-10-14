@@ -1,6 +1,6 @@
 // Append Mode
-# include <iostream>
-# include <fstream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -8,7 +8,7 @@ int main()
 {
     fstream MyFile;
 
-    MyFile.open("D:/Career/C++/AbuHadhoud/Files/MyFile.txt", ios::out | ios::app); // Append Mode
+    MyFile.open("../Files/MyFile.txt", ios::out | ios::app); // Append Mode
 
     if (MyFile.is_open())
     {
@@ -16,6 +16,6 @@ int main()
         MyFile << "Hi, this is another new line.\n";
 
         MyFile.close();
-    }    
+    }
     return 0;
 }

@@ -1,6 +1,6 @@
 // Validate Number
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
+#include "../Libraries/MyInput.h"
 
 using namespace MyInput;
 

@@ -1,8 +1,8 @@
 // Delete Record From File
-# include <iostream>
-# include <vector>
-# include <string>
-# include <fstream>
+#include <iostream>
+#include <vector>
+#include <string>
+#include <fstream>
 
 using namespace std;
 
@@ -15,7 +15,7 @@ void PrintFileContent(string FileName)
     {
         string Line;
 
-        while(getline(MyFile, Line))
+        while (getline(MyFile, Line))
         {
             cout << Line << endl;
         }
@@ -24,7 +24,7 @@ void PrintFileContent(string FileName)
     }
 }
 
-void LoadDataFromFileToVector(string FileName, vector<string> & vFileContent)
+void LoadDataFromFileToVector(string FileName, vector<string> &vFileContent)
 {
     fstream MyFile;
     MyFile.open(FileName, ios::in); // read
@@ -33,7 +33,7 @@ void LoadDataFromFileToVector(string FileName, vector<string> & vFileContent)
     {
         string Line;
 
-        while(getline(MyFile, Line))
+        while (getline(MyFile, Line))
         {
             vFileContent.push_back(Line);
         }
@@ -42,7 +42,7 @@ void LoadDataFromFileToVector(string FileName, vector<string> & vFileContent)
     }
 }
 
-void SaveVectorToFile(string FileName, vector<string> & vFileContent)
+void SaveVectorToFile(string FileName, vector<string> &vFileContent)
 {
     fstream MyFile;
     MyFile.open(FileName, ios::out); // read
@@ -60,11 +60,11 @@ void SaveVectorToFile(string FileName, vector<string> & vFileContent)
 
 void DeleteRecordFromFile(string FileName, string Record)
 {
-    
-    vector <string> vFileContent;
+
+    vector<string> vFileContent;
     LoadDataFromFileToVector(FileName, vFileContent);
 
-    for (string &Line : vFileContent) 
+    for (string &Line : vFileContent)
     {
         if (Line == Record)
             Line = "";
@@ -76,13 +76,12 @@ void DeleteRecordFromFile(string FileName, string Record)
 int main()
 {
     cout << "File Content Before Delete.\n";
-    PrintFileContent("D:/Career/C++/AbuHadhoud/Files/MyFile.txt");
+    PrintFileContent("../Files/MyFile.txt");
 
-
-    DeleteRecordFromFile("D:/Career/C++/AbuHadhoud/Files/MyFile.txt", "Shadi");
+    DeleteRecordFromFile("../Files/MyFile.txt", "Shadi");
 
     cout << "\n\nFile Content After Delete.\n";
-    PrintFileContent("D:/Career/C++/AbuHadhoud/Files/MyFile.txt");  
+    PrintFileContent("../Files/MyFile.txt");
 
     return 0;
 }

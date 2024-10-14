@@ -1,6 +1,6 @@
 // Read Mode
-# include <iostream>
-# include <fstream>
+#include <iostream>
+#include <fstream>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ void PrintFileContent(string FileName)
     {
         string Line;
 
-        while(getline(MyFile, Line))
+        while (getline(MyFile, Line))
         {
             cout << Line << endl;
         }
@@ -25,7 +25,7 @@ void PrintFileContent(string FileName)
 int main()
 {
 
-    PrintFileContent("D:/Career/C++/AbuHadhoud/Files/MyFile.txt"); // Write Mode
+    PrintFileContent("../Files/MyFile.txt"); // Write Mode
 
     return 0;
 }
