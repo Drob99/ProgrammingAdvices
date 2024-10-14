@@ -1,5 +1,5 @@
 // Sum Each row in Matrix in Array
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -28,13 +28,13 @@ void PrintMatrixRowSumsFromArray(int array[Rows], short Rows)
 {
     for (short i = 0; i < Rows; i++)
     {
-        cout << " Row " << i+1 << " Sum = " << array[i] << endl;
+        cout << " Row " << i + 1 << " Sum = " << array[i] << endl;
     }
 }
 
 int main()
 {
-    //seed random
+    // seed random
     MyFunctions::SeedRandom();
 
     // declare a matrix
@@ -52,6 +52,4 @@ int main()
     int array[Rows];
     SaveRowSumstoArray(array, Matrix, Rows, Cols);
     PrintMatrixRowSumsFromArray(array, Rows);
-
-
 }

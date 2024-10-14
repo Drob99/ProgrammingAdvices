@@ -1,32 +1,31 @@
 // Reverse Word
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
-
 string ReverseWords(string S1)
 {
-    vector <string> vString = String::SplitString(S1, " ");
+    vector<string> vString = String::SplitString(S1, " ");
 
     string Result = "";
 
-    vector <string>::iterator iter = vString.end();
+    vector<string>::iterator iter = vString.end();
 
-    while(iter != vString.begin())
+    while (iter != vString.begin())
     {
-        -- iter;
+        --iter;
 
         Result += *iter + " ";
     }
 
     // for (short i = vString.size() - 1; i > 0; i--)
     // {
-    //     Result += vString[i] + " "; 
+    //     Result += vString[i] + " ";
     // }
 
     // return Result + vString[0];

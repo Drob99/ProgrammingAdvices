@@ -1,15 +1,15 @@
 // Num Exists in Matrix
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
 bool NumberExistsInMatrix(int Number, int Matrix[3][3], short Rows, short Cols)
 {
-    for (short i = 0 ; i < Rows; i++)
+    for (short i = 0; i < Rows; i++)
     {
-        for (short j = 0 ; j < Cols; j++)
+        for (short j = 0; j < Cols; j++)
         {
             if (Matrix[i][j] == Number)
                 return true;
@@ -29,12 +29,11 @@ void PrintIfNumExistsInMatrix(int Number, int Matrix[3][3], short Rows, short Co
 
 int main()
 {
-    int Matrix[3][3] = 
-    {
-        {77,  5, 12},
-        {22, 20,  1},
-        { 1,  0,  9}
-    };
+    int Matrix[3][3] =
+        {
+            {77, 5, 12},
+            {22, 20, 1},
+            {1, 0, 9}};
 
     cout << "Matrix1:\n";
     Matrix::PrintMatrix(Matrix, 3, 3);

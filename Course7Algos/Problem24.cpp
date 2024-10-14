@@ -1,9 +1,8 @@
 // Upper First Letter of Each Word in String
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
 
 using namespace std;
 
@@ -15,7 +14,7 @@ string UpperString(string Sentence)
     {
         if (Sentence.at(i) != ' ' && isFirstLetter)
             Sentence[i] = toupper(Sentence[i]);
-        
+
         isFirstLetter = (Sentence[i] == ' ' ? true : false);
     }
 

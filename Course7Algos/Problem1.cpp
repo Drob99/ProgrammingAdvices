@@ -1,6 +1,6 @@
 // 3x3 Random Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <iomanip>
+#include "../Libraries/MyFunctions.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ void FillRandomMatrix(int Matrix[3][3], short Rows, short Cols)
 
 void PrintMatrix(int Matrix[3][3], short Rows, short Cols)
 {
-    
+
     for (short i = 0; i < Rows; i++)
     {
         for (short j = 0; j < Cols; j++)

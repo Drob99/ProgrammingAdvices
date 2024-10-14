@@ -1,14 +1,12 @@
 // Replace Words
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
-
-
 
 string ReplaceWordsInStringUsingBuiltInFunction(string S1, string OrigWord, string Replacement)
 {
@@ -29,9 +27,9 @@ int main()
     string OriginalWord = "Jordan";
     string Replacement = "USA";
 
-    cout << "\nOriginal String\n" << S1;
+    cout << "\nOriginal String\n"
+         << S1;
 
     cout << "\n\nString After Replace:\n";
     cout << ReplaceWordsInStringUsingBuiltInFunction(S1, "Jordan", "USA");
-
 }

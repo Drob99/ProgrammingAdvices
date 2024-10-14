@@ -1,13 +1,12 @@
 // Remove Puncts
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
-
 
 string RemovePunctuations(string S1)
 {
@@ -25,9 +24,9 @@ int main()
 {
     string S1 = "Welcome to Jordan, Jordan is a nice country; it's amazing.";
 
-    cout << "\nOriginal String\n" << S1;
+    cout << "\nOriginal String\n"
+         << S1;
 
     cout << "\n\nPunctuations Removed:\n";
     cout << RemovePunctuations(S1);
-    
 }

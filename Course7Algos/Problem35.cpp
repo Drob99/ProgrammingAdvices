@@ -1,9 +1,9 @@
 // Print Each Word In String
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
 
 using namespace std;
 
@@ -17,7 +17,7 @@ void PrintEachWord(string Sentence)
         isSpace = (Sentence[i] == ' ' ? true : false);
         if (Sentence.at(i) != ' ' && !isSpace)
             cout << Sentence[i];
-    
+
         if (isSpace)
             cout << "\n";
     }
@@ -45,12 +45,10 @@ void PrintEachWordInString(string S1)
 
     if (S1 != "")
         cout << S1 << endl;
-
 }
 
-
 int main()
-{    
+{
     string S1 = MyInput::ReadString("Please Enter Your String?");
 
     PrintEachWordInString(S1);

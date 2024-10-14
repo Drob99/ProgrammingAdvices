@@ -1,14 +1,14 @@
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFiles.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
-# include <fstream>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include "../Libraries/MyFiles.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
+#include <fstream>
 
 using namespace std;
-const string FILENAME = "D:\\Career\\C++\\AbuHadhoud\\Files\\BankRecords.txt";
+const string FILENAME = "../Files/BankRecords.txt";
 
 void ShowBankMenu();
 void Transactions();
@@ -23,7 +23,7 @@ struct ClientData
 };
 
 enum enAction
-{ 
+{
     enShowClient = 1,
     enAddClient = 2,
     enDeleteClient = 3,
@@ -37,7 +37,7 @@ enum enAction
 
 ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
 {
-    vector <string> vClientData = String::SplitString(Line, Separator);
+    vector<string> vClientData = String::SplitString(Line, Separator);
 
     ClientData stClientData;
 
@@ -64,9 +64,9 @@ string ConvertRecordToLine(ClientData &ClientData, string Separator = "#//#")
 bool ClientExistsByAccountNumber(string AccountNumber, string FileName)
 {
 
-    vector <ClientData> vClients;
+    vector<ClientData> vClients;
     fstream MyFile;
-    MyFile.open(FileName, ios::in);//read Mode
+    MyFile.open(FileName, ios::in); // read Mode
 
     if (MyFile.is_open())
     {
@@ -85,7 +85,6 @@ bool ClientExistsByAccountNumber(string AccountNumber, string FileName)
         }
 
         MyFile.close();
-
     }
     return false;
 }
@@ -96,7 +95,7 @@ void ReadClientData(ClientData &Client)
     while (ClientExistsByAccountNumber(Client.AccountNumber, FILENAME))
     {
         cout << "\nClient with [" << Client.AccountNumber << "] already exists, Enter another Account Number? ";
-        getline(cin >> ws, Client.AccountNumber);     
+        getline(cin >> ws, Client.AccountNumber);
     }
 
     Client.PinCode = MyInput::ReadString("Enter PinCode? ");
@@ -105,7 +104,7 @@ void ReadClientData(ClientData &Client)
     Client.AccountBalance = MyInput::ReadDouble("Enter AccountBalance? ");
 }
 
-void FillVectorWithRecordsInFile(string FileName, vector <ClientData> &vFileContent)
+void FillVectorWithRecordsInFile(string FileName, vector<ClientData> &vFileContent)
 {
     fstream MyFile;
 
@@ -153,7 +152,7 @@ void PrintClientData(ClientData stClientData)
     cout << "\n----------------------------------------------------\n";
 }
 
-void SaveVectorToFile(string FileName, vector <string> &vFileContent) //optional &
+void SaveVectorToFile(string FileName, vector<string> &vFileContent) // optional &
 {
     fstream MyFile;
     MyFile.open(FileName, ios::out); // opens in write mode an thus clears the file
@@ -169,7 +168,7 @@ void SaveVectorToFile(string FileName, vector <string> &vFileContent) //optional
     }
 }
 
-void SaveBankRecordsToFile(string FileName, vector <ClientData> vFileContent) //optional &
+void SaveBankRecordsToFile(string FileName, vector<ClientData> vFileContent) // optional &
 {
     fstream MyFile;
     MyFile.open(FileName, ios::out); // opens in write mode an thus clears the file
@@ -187,7 +186,7 @@ void SaveBankRecordsToFile(string FileName, vector <ClientData> vFileContent) //
     }
 }
 
-void LoadFileLinesInVector(string FileName, vector <string> &vFileContent)
+void LoadFileLinesInVector(string FileName, vector<string> &vFileContent)
 {
     fstream MyFile;
 
@@ -206,8 +205,6 @@ void LoadFileLinesInVector(string FileName, vector <string> &vFileContent)
     }
 }
 
-
-
 // Show All Clients Methods
 
 void ShowClientHeader(short NumOfClients)
@@ -220,11 +217,11 @@ void ShowClientHeader(short NumOfClients)
 
 void ShowAllClientsInFile()
 {
-    vector <ClientData> vClientData;
+    vector<ClientData> vClientData;
     FillVectorWithRecordsInFile(FILENAME, vClientData);
 
     ShowClientHeader(vClientData.size());
-    
+
     for (ClientData &ClientData : vClientData)
     {
         DisplayClientAsRow(ClientData);
@@ -263,7 +260,7 @@ void AddClients()
         cout << "\nClient Added Successfully, do you want to add more clients? ";
         cin >> AddMore;
 
-    } while (toupper(AddMore) == 'Y'); 
+    } while (toupper(AddMore) == 'Y');
 }
 
 // Find Client Methods
@@ -293,7 +290,7 @@ bool FindClientByAccountNumber(vector<ClientData> &vClientData, string AccountNu
 void FindClient()
 {
     string AccountNumber = MyInput::ReadString("Please Enter AccountNumber? ");
-    
+
     vector<ClientData> vClientData;
     ClientData TargetClient;
 
@@ -304,7 +301,6 @@ void FindClient()
         cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!\n";
     }
 }
-
 
 // Delete Client Methods
 
@@ -317,7 +313,7 @@ void DeleteClientScreen()
 
 void DeleteRecordFromFile(string FileName, ClientData Client)
 {
-    vector <string> vFileContent;
+    vector<string> vFileContent;
     string Record = ConvertRecordToLine(Client);
 
     LoadFileLinesInVector(FileName, vFileContent);
@@ -336,7 +332,7 @@ void DeleteClient()
     string AccountNumber = MyInput::ReadString("Plaese Enter Account Number? ");
     vector<ClientData> vClientData;
     ClientData TargetClient;
-    
+
     char Delete;
 
     if (FindClientByAccountNumber(vClientData, AccountNumber, TargetClient))
@@ -350,13 +346,11 @@ void DeleteClient()
             DeleteRecordFromFile(FILENAME, TargetClient);
             cout << "\nClient Deleted Successfully.";
         }
-
     }
     else
     {
         cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!\n";
     }
-
 }
 
 // Update Client Methods
@@ -380,7 +374,7 @@ ClientData UpdateClientData(ClientData ClientData)
 
 void UpdateBankRecordToFile(string FileName, ClientData OldData, ClientData UpdatedData)
 {
-    vector <string> vFileContent;
+    vector<string> vFileContent;
     string Record = ConvertRecordToLine(OldData);
     string UpdateTo = ConvertRecordToLine(UpdatedData);
 
@@ -403,7 +397,7 @@ void UpdateClient()
     string AccountNumber = MyInput::ReadString("Plaese Enter Account Number? ");
     vector<ClientData> vClientData;
     ClientData TargetClient;
-    
+
     char Update;
 
     if (FindClientByAccountNumber(vClientData, AccountNumber, TargetClient))
@@ -418,16 +412,14 @@ void UpdateClient()
             UpdateBankRecordToFile(FILENAME, TargetClient, NewClient);
             cout << "\nClient Updated Successfully.";
         }
-
     }
     else
     {
         cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!\n";
     }
-
 }
 
-//Transactions Methods
+// Transactions Methods
 
 void TransactionMenu()
 {
@@ -467,7 +459,7 @@ ClientData DepositToClient(ClientData ClientData, double DepositAmount)
 
 void AfterDepositUpdateFile(string FileName, ClientData OldData, ClientData UpdatedData)
 {
-    vector <string> vFileContent;
+    vector<string> vFileContent;
     string Record = ConvertRecordToLine(OldData);
     string UpdateTo = ConvertRecordToLine(UpdatedData);
 
@@ -497,7 +489,7 @@ void Deposit()
         cout << "\nClient with [" << AccountNumber << "] does not exist.\n";
         AccountNumber = MyInput::ReadString("Please Enter AccountNumber? ");
     }
-    
+
     char Deposit = 'n';
 
     PrintClientData(TargetClient);
@@ -513,7 +505,6 @@ void Deposit()
         cout << "\nNew balance for account number: " << NewClient.AccountNumber << " is " << NewClient.AccountBalance << endl;
     }
 }
-
 
 // Withdraw Methods
 
@@ -544,7 +535,7 @@ ClientData WithdrawFromClient(ClientData Client, double Withdraw)
 
 void AfterWithdrawUpdateFile(string FileName, ClientData OldData, ClientData UpdatedData)
 {
-    vector <string> vFileContent;
+    vector<string> vFileContent;
     string Record = ConvertRecordToLine(OldData);
     string UpdateTo = ConvertRecordToLine(UpdatedData);
 
@@ -575,7 +566,7 @@ void Withdraw()
         cout << "\nClient with [" << AccountNumber << "] does not exist.\n";
         AccountNumber = MyInput::ReadString("Please Enter AccountNumber? ");
     }
-    
+
     char Withdraw = 'n';
 
     PrintClientData(TargetClient);
@@ -594,7 +585,6 @@ void Withdraw()
     }
 }
 
-
 // TotalBalances Methods
 
 void TotalBalancesHeader(short NumOfClients)
@@ -609,12 +599,12 @@ void TotalBalancesHeader(short NumOfClients)
 
 void ShowTotalBalances()
 {
-    vector <ClientData> vClientData;
+    vector<ClientData> vClientData;
     FillVectorWithRecordsInFile(FILENAME, vClientData);
     double TotalBalance = 0;
 
     TotalBalancesHeader(vClientData.size());
-    
+
     for (ClientData &ClientData : vClientData)
     {
         DisplayBalanceAsRow(ClientData);
@@ -637,37 +627,35 @@ enTransactionMenu ReadTransactionChoice()
 void GoBackToTransactionsMenu()
 {
     cout << "\n\nPress any key to go back to transactions menu...\n";
-    system ("pause>0");
+    system("pause>0");
     Transactions();
 }
 
 void DealWithTransactionChoice(enTransactionMenu choice)
 {
-    
 
-    switch(choice)
+    switch (choice)
     {
-        case enTransactionMenu::enDeposit:
-            system ("cls");
-            Deposit();
-            GoBackToTransactionsMenu();
-            break;
-        
-        case enTransactionMenu::enWithdraw:
-            system ("cls");
-            Withdraw();
-            GoBackToTransactionsMenu();
-            break;
+    case enTransactionMenu::enDeposit:
+        system("cls");
+        Deposit();
+        GoBackToTransactionsMenu();
+        break;
 
-        case enTransactionMenu::enTotalBalances:
-            system ("cls");
-            ShowTotalBalances();
-            GoBackToTransactionsMenu();
-            break;
+    case enTransactionMenu::enWithdraw:
+        system("cls");
+        Withdraw();
+        GoBackToTransactionsMenu();
+        break;
 
-        case enTransactionMenu::enMainMenu:
-            ShowBankMenu();
+    case enTransactionMenu::enTotalBalances:
+        system("cls");
+        ShowTotalBalances();
+        GoBackToTransactionsMenu();
+        break;
 
+    case enTransactionMenu::enMainMenu:
+        ShowBankMenu();
     }
 }
 
@@ -680,7 +668,6 @@ void Transactions()
     DealWithTransactionChoice(choice);
 }
 
-
 // End Methods
 
 void EndScreen()
@@ -690,13 +677,12 @@ void EndScreen()
     cout << "\n----------------------------------------------------\n";
 }
 
-
 // Main Menu and Project Handling
 
 void GoBackToMainMenu()
 {
     cout << "\n\nPress any key to go back to main menu...\n";
-    system ("pause>0");
+    system("pause>0");
     ShowBankMenu();
 }
 
@@ -710,60 +696,59 @@ enAction ReadUserChoice()
 
 void DealWithUserChoice(enAction choice)
 {
-    system ("cls");
-    switch(choice)
+    system("cls");
+    switch (choice)
     {
-        case enAction::enShowClient:
-        {
-            ShowAllClientsInFile();
-            GoBackToMainMenu();
-            break;
-        }
-        
-        case enAction::enAddClient:
-        {
-            AddClientScreen();
-            AddClients();
-            GoBackToMainMenu();
-            break;
-        }
+    case enAction::enShowClient:
+    {
+        ShowAllClientsInFile();
+        GoBackToMainMenu();
+        break;
+    }
 
-        case enAction::enDeleteClient:
-        {
-            DeleteClientScreen();
-            DeleteClient();
-            GoBackToMainMenu();
-            break;
-        }
-        
-        case enAction::enUpdateClient:
-        {
-            UpdateClientScreen();
-            UpdateClient();
-            GoBackToMainMenu();
-            break;
-        }
+    case enAction::enAddClient:
+    {
+        AddClientScreen();
+        AddClients();
+        GoBackToMainMenu();
+        break;
+    }
 
-        case enAction::enFindClient:
-        {
-            FindClientScreen();
-            FindClient();
-            GoBackToMainMenu();
-            break;
-        }
-        
-        case enAction::enTransactions:
-        {
-            Transactions();
-            break;
-        }
-        
-        case enAction::enLogout:
-        {
-            EndScreen();
-            break;
-        }
-            
+    case enAction::enDeleteClient:
+    {
+        DeleteClientScreen();
+        DeleteClient();
+        GoBackToMainMenu();
+        break;
+    }
+
+    case enAction::enUpdateClient:
+    {
+        UpdateClientScreen();
+        UpdateClient();
+        GoBackToMainMenu();
+        break;
+    }
+
+    case enAction::enFindClient:
+    {
+        FindClientScreen();
+        FindClient();
+        GoBackToMainMenu();
+        break;
+    }
+
+    case enAction::enTransactions:
+    {
+        Transactions();
+        break;
+    }
+
+    case enAction::enLogout:
+    {
+        EndScreen();
+        break;
+    }
     }
 }
 

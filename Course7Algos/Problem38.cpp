@@ -1,10 +1,10 @@
 // TrimLeft, TrimRight, Trim
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -13,7 +13,7 @@ string TrimLeft(string S1)
     for (short i = 0; i < S1.length(); i++)
     {
         if (S1[i] != ' ')
-            return S1.substr(i, S1.length()-i);
+            return S1.substr(i, S1.length() - i);
     }
     return "";
 }
@@ -33,9 +33,8 @@ string Trim(string S1)
     return TrimLeft(TrimRight(S1));
 }
 
-
 int main()
-{    
+{
     string S1 = MyInput::ReadString("Please Enter Your String?");
 
     cout << "String     = " << S1 << ".\n";

@@ -1,8 +1,7 @@
 // Print First Letter of Each Word in String
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
 
 using namespace std;
 
@@ -16,7 +15,7 @@ void PrintFirstLetterOfEachWordInString(string Sentence)
     {
         if (Sentence.at(i) != ' ' && isFirstLetter)
             cout << Sentence.at(i) << "\n";
-        
+
         isFirstLetter = (Sentence[i] == ' ' ? true : false);
     }
 }

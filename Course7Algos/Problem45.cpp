@@ -1,10 +1,10 @@
 // Change Record To Line
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -24,8 +24,6 @@ string ReadMyString(string message)
     getline(cin, Sentence);
     return Sentence;
 }
-
-
 
 void ReadClientData(ClientData &ClientData)
 {
@@ -55,5 +53,4 @@ int main()
 
     cout << "\nClient Record for Saving is:\n";
     cout << ConvertRecordToLine(stClientData);
-
 }

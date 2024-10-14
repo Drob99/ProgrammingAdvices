@@ -1,9 +1,8 @@
 // Upper/Lower All Letters in String
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
 
 using namespace std;
 
@@ -35,8 +34,7 @@ int main()
 
     cout << "\nString after Upper:\n";
     cout << UpperAllString(Sentence);
-    
+
     cout << "\n\nString after Lower:\n";
     cout << LowerAllString(Sentence);
-
 }

@@ -1,6 +1,6 @@
 // check Typical Matrix
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -29,7 +29,6 @@ void PrintMatrixTypical(int Matrix1[3][3], int Matrix2[3][3], short Rows, short 
         cout << "\nNo: matrices are NOT typical.";
 }
 
-
 int main()
 {
     MyFunctions::SeedRandom();
@@ -46,5 +45,4 @@ int main()
     MyFunctions::PrintFormattedMatrix(Matrix2, 3, 3);
 
     PrintMatrixTypical(Matrix1, Matrix2, 3, 3);
-
 }

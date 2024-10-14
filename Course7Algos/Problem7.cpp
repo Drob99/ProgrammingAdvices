@@ -1,5 +1,5 @@
 // Transpose Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -13,7 +13,6 @@ void TransposeMatrix(int TransposedMatrix[3][3], int Matrix[3][3], int Rows, int
         }
     }
 }
-
 
 int main()
 {

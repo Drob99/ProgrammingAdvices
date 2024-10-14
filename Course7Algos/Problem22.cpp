@@ -1,7 +1,7 @@
 // Fibonacci Series Recursion
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 

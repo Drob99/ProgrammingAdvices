@@ -1,8 +1,7 @@
 // Print Middle Row and Col of Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
-
 
 void PrintMiddleRowOfMatrix(int Matrix[3][3], int Row, int Col)
 {

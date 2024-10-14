@@ -1,6 +1,6 @@
 // Equality Of Matrix
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -34,7 +34,6 @@ void PrintMatrixEquality(int Matrix1[3][3], int Matrix2[3][3], short Rows, short
         cout << "\nNo: matrices are NOT equal.";
 }
 
-
 int main()
 {
     MyFunctions::SeedRandom();
@@ -51,5 +50,4 @@ int main()
     Matrix::PrintFormattedMatrix(Matrix2, 3, 3);
 
     PrintMatrixEquality(Matrix1, Matrix2, 3, 3);
-
 }

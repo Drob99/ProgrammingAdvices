@@ -1,14 +1,14 @@
 // Find Client By Account Number
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
-# include <fstream>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
+#include <fstream>
 
 using namespace std;
-const string FileName = "D:\\Career\\C++\\AbuHadhoud\\Files\\MyFile2.txt";
+const string FileName = "../Files/MyFile2.txt";
 
 struct ClientData
 {
@@ -30,7 +30,7 @@ void PrintClientData(ClientData stClientData)
 
 ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
 {
-    vector <string> vClientData = String::SplitString(Line, Separator);
+    vector<string> vClientData = String::SplitString(Line, Separator);
 
     ClientData stClientData;
 
@@ -43,7 +43,7 @@ ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
     return stClientData;
 }
 
-void FillVectorWithRecordsInFile(string FileName, vector <ClientData> &vFileContent)
+void FillVectorWithRecordsInFile(string FileName, vector<ClientData> &vFileContent)
 {
     fstream MyFile;
 
@@ -78,12 +78,10 @@ bool FindClientByAccountNumber(vector<ClientData> &vClientData, string AccountNu
     return false;
 }
 
-
-
 int main()
 {
     string AccountNumber = MyInput::ReadString("Please Enter AccountNumber? ");
-    
+
     vector<ClientData> vClientData;
     ClientData TargetClient;
 

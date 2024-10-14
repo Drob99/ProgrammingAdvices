@@ -1,5 +1,5 @@
 // Sum Each Col in Matrix in Array
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -18,13 +18,13 @@ void PrintMatrixColSumsFromArray(int array[3], short Cols)
 {
     for (short i = 0; i < Cols; i++)
     {
-        cout << " Col " << i+1 << " Sum = " << array[i] << endl;
+        cout << " Col " << i + 1 << " Sum = " << array[i] << endl;
     }
 }
 
 int main()
 {
-    //seed random
+    // seed random
     MyFunctions::SeedRandom();
 
     // declare a matrix
@@ -42,6 +42,4 @@ int main()
     int array[Cols];
     SaveColSumstoArray(array, Matrix, Rows, Cols);
     PrintMatrixColSumsFromArray(array, Cols);
-
-
 }

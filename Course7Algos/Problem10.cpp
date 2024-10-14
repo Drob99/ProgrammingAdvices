@@ -1,5 +1,5 @@
 // Sum Of Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -16,7 +16,6 @@ int SumOfMatrix(int Matrix[3][3], short Rows, short Cols)
     return Sum;
 }
 
-
 int main()
 {
     MyFunctions::SeedRandom();
@@ -29,5 +28,4 @@ int main()
     Matrix::PrintFormattedMatrix(Matrix, 3, 3);
 
     cout << "\nSum of Matrix1 is: " << SumOfMatrix(Matrix, 3, 3);
-
 }

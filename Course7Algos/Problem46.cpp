@@ -1,10 +1,10 @@
 // Convert Line Data To Record
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
@@ -19,7 +19,7 @@ struct ClientData
 
 ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
 {
-    vector <string> vClientData = String::SplitString(Line, Separator);
+    vector<string> vClientData = String::SplitString(Line, Separator);
 
     ClientData stClientData;
 
@@ -40,7 +40,6 @@ void PrintClientData(ClientData stClientData)
     cout << "\nPhone          : " << stClientData.Phone;
     cout << "\nAccount Balance: " << stClientData.AccountBalance;
 }
-
 
 int main()
 {

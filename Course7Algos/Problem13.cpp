@@ -1,5 +1,5 @@
 // Check Identity Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -19,7 +19,6 @@ bool IsIdentityMatrix(int Matrix[3][3], short Rows, short Cols)
     //             IdentityMatrix[i][j] = 0;
     //     }
     // }
-
 
     for (short i = 0; i < Rows; i++)
     {
@@ -46,15 +45,13 @@ void PrintMatrixEqualToIdentity(int Matrix[3][3], short Rows, short Cols)
         cout << "\nNO: Matrix is NOT identity.";
 }
 
-
 int main()
 {
     MyFunctions::SeedRandom();
 
-    int Matrix[3][3] = {    {1, 0, 0}, 
-                            {0, 1, 0},
-                            {0, 0, 1}
-                        };
+    int Matrix[3][3] = {{1, 0, 0},
+                        {0, 1, 0},
+                        {0, 0, 1}};
 
     // Matrix::FillRandomMatrix(Matrix, 3, 3, 1, 10);
 
@@ -62,5 +59,4 @@ int main()
     Matrix::PrintMatrix(Matrix, 3, 3);
 
     PrintMatrixEqualToIdentity(Matrix, 3, 3);
-
 }

@@ -1,7 +1,7 @@
 // Min & Max In Matrix
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -36,12 +36,11 @@ int MaxNumberInMatrix(int Matrix[3][3], short Rows, short Cols)
 
 int main()
 {
-    int Matrix1[3][3] = 
-    {
-        {77,  5, 12},
-        {22, 20,  6},
-        {14,  3,  9}
-    };
+    int Matrix1[3][3] =
+        {
+            {77, 5, 12},
+            {22, 20, 6},
+            {14, 3, 9}};
 
     cout << "Matrix1:\n";
     Matrix::PrintMatrix(Matrix1, 3, 3);

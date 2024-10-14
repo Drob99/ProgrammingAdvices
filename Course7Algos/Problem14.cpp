@@ -1,5 +1,5 @@
 // Check Scalar Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
+#include "../Libraries/MyFunctions.h"
 
 using namespace std;
 
@@ -31,15 +31,13 @@ void PrintMatrixScalar(int Matrix[3][3], short Rows, short Cols)
         cout << "\nNO: Matrix is NOT scalar.";
 }
 
-
 int main()
 {
     MyFunctions::SeedRandom();
 
-    int Matrix[3][3] = {    {7, 0, 0}, 
-                            {0, 7, 0},
-                            {0, 0, 7}
-                        };
+    int Matrix[3][3] = {{7, 0, 0},
+                        {0, 7, 0},
+                        {0, 0, 7}};
 
     // Matrix::FillRandomMatrix(Matrix, 3, 3, 1, 10);
 
@@ -47,5 +45,4 @@ int main()
     Matrix::PrintMatrix(Matrix, 3, 3);
 
     PrintMatrixScalar(Matrix, 3, 3);
-
 }

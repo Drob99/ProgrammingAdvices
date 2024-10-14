@@ -1,14 +1,14 @@
 // Delete Client By Account Number
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
-# include <fstream>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
+#include <fstream>
 
 using namespace std;
-const string FileName = "D:\\Career\\C++\\AbuHadhoud\\Files\\MyFile2.txt";
+const string FileName = "../Files/MyFile2.txt";
 
 struct ClientData
 {
@@ -21,7 +21,7 @@ struct ClientData
 
 ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
 {
-    vector <string> vClientData = String::SplitString(Line, Separator);
+    vector<string> vClientData = String::SplitString(Line, Separator);
 
     ClientData stClientData;
 
@@ -34,7 +34,7 @@ ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
     return stClientData;
 }
 
-void LoadFileLinesInVector(string FileName, vector <string> &vFileContent)
+void LoadFileLinesInVector(string FileName, vector<string> &vFileContent)
 {
     fstream MyFile;
 
@@ -53,7 +53,7 @@ void LoadFileLinesInVector(string FileName, vector <string> &vFileContent)
     }
 }
 
-void FillVectorWithRecordsInFile(string FileName, vector <ClientData> &vFileContent)
+void FillVectorWithRecordsInFile(string FileName, vector<ClientData> &vFileContent)
 {
     fstream MyFile;
 
@@ -72,7 +72,7 @@ void FillVectorWithRecordsInFile(string FileName, vector <ClientData> &vFileCont
     }
 }
 
-void SaveVectorToFile(string FileName, vector <string> &vFileContent) //optional &
+void SaveVectorToFile(string FileName, vector<string> &vFileContent) // optional &
 {
     fstream MyFile;
     MyFile.open(FileName, ios::out); // opens in write mode an thus clears the file
@@ -90,7 +90,7 @@ void SaveVectorToFile(string FileName, vector <string> &vFileContent) //optional
 
 void DeleteRecordFromFile(string FileName, string Record)
 {
-    vector <string> vFileContent;
+    vector<string> vFileContent;
 
     LoadFileLinesInVector(FileName, vFileContent);
 
@@ -127,7 +127,6 @@ bool FindClientByAccountNumber(vector<ClientData> &vClientData, string AccountNu
     }
 
     return false;
-
 }
 
 void PrintClientData(ClientData stClientData)
@@ -143,7 +142,7 @@ void DeleteClient(string AccountNumber)
 {
     vector<ClientData> vClientData;
     ClientData TargetClient;
-    
+
     char Delete;
 
     if (FindClientByAccountNumber(vClientData, AccountNumber, TargetClient))
@@ -157,13 +156,11 @@ void DeleteClient(string AccountNumber)
             DeleteRecordFromFile(FileName, ConvertRecordToLine(TargetClient));
             cout << "\nClient Deleted Successfully.";
         }
-
     }
     else
     {
         cout << "\nClient with Account Number (" << AccountNumber << ") Not Found!\n";
     }
-
 }
 
 int main()

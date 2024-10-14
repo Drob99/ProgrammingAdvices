@@ -1,12 +1,11 @@
 // Print all vowels in string
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
 
 using namespace std;
-
 
 void PrintAllVowelsInString(string S1)
 {
@@ -19,7 +18,7 @@ void PrintAllVowelsInString(string S1)
 }
 
 int main()
-{    
+{
     string S1 = MyInput::ReadString("Please Enter Your String?");
 
     PrintAllVowelsInString(S1);

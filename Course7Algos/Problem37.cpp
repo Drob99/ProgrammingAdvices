@@ -1,20 +1,20 @@
 // Count Each Word In String
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
-vector <string> SplitString (string S1, string delimeter)
+vector<string> SplitString(string S1, string delimeter)
 {
-    vector <string> vSplittedString;
+    vector<string> vSplittedString;
     string token;
     short pos = 0;
 
-    while((pos = S1.find(delimeter)) != std::string::npos)
+    while ((pos = S1.find(delimeter)) != std::string::npos)
     {
         token = S1.substr(0, pos);
 
@@ -32,12 +32,11 @@ vector <string> SplitString (string S1, string delimeter)
     return vSplittedString;
 }
 
-
 int main()
-{    
+{
     string S1 = MyInput::ReadString("Please Enter Your String?");
 
-    vector <string> vWords = SplitString(S1, " ");
+    vector<string> vWords = SplitString(S1, " ");
     cout << "\nTokens = " << vWords.size() << endl;
     MyVectors::PrintVector(vWords);
 }

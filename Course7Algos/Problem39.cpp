@@ -1,14 +1,14 @@
 // Join String
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
 
 using namespace std;
 
-string JoinString(vector <string> &vWords, string delimiter)
+string JoinString(vector<string> &vWords, string delimiter)
 {
     string Result = "";
 
@@ -21,7 +21,7 @@ string JoinString(vector <string> &vWords, string delimiter)
 
 int main()
 {
-    vector <string> vString = {"Omar", "Bahaeldin", "Abdalla"};
+    vector<string> vString = {"Omar", "Bahaeldin", "Abdalla"};
 
     cout << "\nVector after join:\n";
     cout << JoinString(vString, " ");

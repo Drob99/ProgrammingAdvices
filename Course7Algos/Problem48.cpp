@@ -1,11 +1,11 @@
 // Show Clients
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
-# include <fstream>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
+#include <fstream>
 
 using namespace std;
 
@@ -20,7 +20,7 @@ struct ClientData
 
 ClientData ConvertLineToBankRecord(string Line, string Separator = "#//#")
 {
-    vector <string> vClientData = String::SplitString(Line, Separator);
+    vector<string> vClientData = String::SplitString(Line, Separator);
 
     ClientData stClientData;
 
@@ -50,7 +50,7 @@ void DisplayClientAsRow(ClientData &stClientData)
     cout << stClientData.AccountBalance << "\n";
 }
 
-void FillVectorWithRecordsInFile(string FileName, vector <ClientData> &vFileContent)
+void FillVectorWithRecordsInFile(string FileName, vector<ClientData> &vFileContent)
 {
     fstream MyFile;
 
@@ -71,11 +71,11 @@ void FillVectorWithRecordsInFile(string FileName, vector <ClientData> &vFileCont
 
 void ShowAllClientsInFile()
 {
-    vector <ClientData> vClientData;
-    FillVectorWithRecordsInFile("D:\\Career\\C++\\AbuHadhoud\\Files\\MyFile2.txt", vClientData);
+    vector<ClientData> vClientData;
+    FillVectorWithRecordsInFile("../Files/MyFile2.txt", vClientData);
 
     ShowClientHeader(vClientData.size());
-    
+
     for (ClientData &ClientData : vClientData)
     {
         DisplayClientAsRow(ClientData);

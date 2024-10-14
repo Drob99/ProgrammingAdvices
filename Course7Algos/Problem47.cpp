@@ -1,15 +1,15 @@
 // Convert Line Data To Record
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFiles.h"
-# include <string>
-# include <cctype>
-# include <iomanip>
-# include <vector>
-# include <fstream>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include "../Libraries/MyFiles.h"
+#include <string>
+#include <cctype>
+#include <iomanip>
+#include <vector>
+#include <fstream>
 
 using namespace std;
-const string FileName = "D:\\Career\\C++\\AbuHadhoud\\Files\\MyFile2.txt";
+const string FileName = "../Files/MyFile2.txt";
 
 struct ClientData
 {
@@ -48,14 +48,12 @@ string ConvertRecordToLine(ClientData &ClientData, string Separator = "#//#")
     return Line;
 }
 
-
 void AddClientToFile()
 {
     ClientData stClientData;
     ReadClientData(stClientData);
     string Client = ConvertRecordToLine(stClientData);
     MyFiles::WriteLineToFile(FileName, Client + "\n");
-    
 }
 
 void AddClients()
@@ -73,9 +71,8 @@ void AddClients()
         cout << "\nClient Added Successfully, do you want to add more clients? ";
         cin >> AddMore;
 
-    } while (toupper(AddMore) == 'Y'); 
+    } while (toupper(AddMore) == 'Y');
 }
-
 
 int main()
 {

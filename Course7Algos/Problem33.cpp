@@ -1,8 +1,8 @@
 // Count Vowel
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
 
 using namespace std;
 
@@ -18,11 +18,8 @@ short CountVowels(string S1)
     return VowelCounter;
 }
 
-
-
-
 int main()
-{    
+{
     string S1 = MyInput::ReadString("Please Enter Your String?");
 
     cout << "\nNumber of vowels is: " << CountVowels(S1);

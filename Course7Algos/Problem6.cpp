@@ -1,6 +1,6 @@
 // 3x3 Ordered Matrix
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <iomanip>
+#include "../Libraries/MyFunctions.h"
+#include <iomanip>
 
 using namespace std;
 
@@ -12,14 +12,14 @@ void FillOrderedMatrix(int Matrix[3][3], short Rows, short Cols)
         for (short j = 0; j < Cols; j++)
         {
             Matrix[i][j] = Number;
-            Number ++;
+            Number++;
         }
     }
 }
 
 void PrintMatrix(int Matrix[3][3], short Rows, short Cols)
 {
-    
+
     for (short i = 0; i < Rows; i++)
     {
         for (short j = 0; j < Cols; j++)

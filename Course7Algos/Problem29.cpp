@@ -1,12 +1,17 @@
 // Count All Small/Capital Letters in String
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyInput.h"
-# include "D:\Career\C++\AbuHadhoud\Libraries\MyFunctions.h"
-# include <string>
-# include <cctype>
+#include "../Libraries/MyInput.h"
+#include "../Libraries/MyFunctions.h"
+#include <string>
+#include <cctype>
 
 using namespace std;
 
-enum enWhatToCount { SmallLetters = 0, CapitalLetters = 1, All = 2};
+enum enWhatToCount
+{
+    SmallLetters = 0,
+    CapitalLetters = 1,
+    All = 2
+};
 
 short CountLetters(string S1, enWhatToCount WhatToCount = All)
 {
@@ -22,17 +27,15 @@ short CountLetters(string S1, enWhatToCount WhatToCount = All)
 
         else if (WhatToCount == SmallLetters && islower(S1[i]))
             Counter++;
-     
     }
 
     return Counter;
 }
 
-
 short CountCapitalLetters(string Sentence)
 {
     short CapitalCount = 0;
-    for (short i  = 0; i < Sentence.length(); i++)
+    for (short i = 0; i < Sentence.length(); i++)
     {
         if (isupper(Sentence[i]))
             CapitalCount++;
@@ -43,7 +46,7 @@ short CountCapitalLetters(string Sentence)
 short CountSmallLetters(string Sentence)
 {
     short SmallCount = 0;
-    for (short i  = 0; i < Sentence.length(); i++)
+    for (short i = 0; i < Sentence.length(); i++)
     {
         if (islower(Sentence[i]))
             SmallCount++;
@@ -54,8 +57,8 @@ short CountSmallLetters(string Sentence)
 int main()
 {
     string Sentence = MyInput::ReadString("Please Enter Your String?");
-    
+
     cout << "\nString Length = " << Sentence.length() << endl;
     cout << "Capital Letters Count  = " << CountCapitalLetters(Sentence) << endl;
-    cout << "Small Letters Count = " << CountSmallLetters(Sentence) << endl; 
+    cout << "Small Letters Count = " << CountSmallLetters(Sentence) << endl;
 }
