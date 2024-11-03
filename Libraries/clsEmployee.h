@@ -1,9 +1,8 @@
-# pragma once
-# include <iostream>
+#pragma once
+#include <iostream>
 using namespace std;
 
-# include "D:\Career\C++\AbuHadhoud\Libraries\clsPerson.h"
-
+#include "../Libraries/clsPerson.h"
 
 class clsEmployee : public clsPerson
 {
@@ -13,13 +12,12 @@ private:
     string _Department;
 
 public:
-
     // Parametrized Constructor
     clsEmployee(int ID, string FirstName, string LastName, string Email, string Phone, string Title, float Salary, string Department)
-    : clsPerson(ID, FirstName, LastName, Email, Phone)
+        : clsPerson(ID, FirstName, LastName, Email, Phone)
     {
-        _Title      = Title;
-        _Salary     = Salary;
+        _Title = Title;
+        _Salary = Salary;
         _Department = Department;
     }
 
@@ -33,7 +31,7 @@ public:
         _Title = Title;
     }
 
-        float Salary()
+    float Salary()
     {
         return _Salary;
     }
@@ -63,12 +61,11 @@ public:
         cout << "FirstName  : " << FirstName() << "\n";
         cout << "LastName   : " << LastName() << "\n";
         cout << "Full Name  : " << FullName() << "\n";
-        cout << "Email      : " << Email()   << "\n";
-        cout << "Phone      : " << Phone()  << "\n";
-        cout << "Title      : " << Title()  << "\n";
+        cout << "Email      : " << Email() << "\n";
+        cout << "Phone      : " << Phone() << "\n";
+        cout << "Title      : " << Title() << "\n";
         cout << "Salary     : " << Salary() << "\n";
         cout << "Department : " << Department();
         cout << "\n----------------------\n";
     }
-
 };
