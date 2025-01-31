@@ -11,16 +11,20 @@ namespace RetrieveDataCode1
 {
     public class Program
     {
-        static string connectionString = "Server=.;Database=ContactsDB;User Id =sa;Password=0553481128obh"; // Replace user and password
+        static string connectionString = "Server=.;Database=ContactsDB;User Id =sa;Password=1234"; // Replace user and password
 
         static void PrintAllContacts()
         {
+            // Create a connection with the DB server using the connection string
             SqlConnection connection = new SqlConnection(connectionString);
 
+            // Write your SQL query
             string query = "Select * from Contacts";
 
+            // Execute your query via your connection
             SqlCommand command = new SqlCommand(query, connection);
 
+            // Always, use try and catch before dealing with databases.
             try
             {
                 connection.Open();
@@ -49,11 +53,12 @@ namespace RetrieveDataCode1
                 connection.Close(); // costly. You have a limited number of connections called connection pools.
             }
 
-            catch (Exception ex) 
-            { 
+            catch (Exception ex)
+            {
                 Console.WriteLine("Error: " + ex.Message);
             }
         }
+
         static void Main(string[] args)
         {
             PrintAllContacts();
