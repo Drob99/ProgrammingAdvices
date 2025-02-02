@@ -48,3 +48,4 @@ obj/
 /node_modules/
 
 leetcode.cpp
+.env
