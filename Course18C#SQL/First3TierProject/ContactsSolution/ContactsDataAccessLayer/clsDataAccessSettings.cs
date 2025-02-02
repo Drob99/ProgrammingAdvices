@@ -4,7 +4,7 @@ namespace ContactsDataAccessLayer
 {
     static class clsDataAccessSettings
     {
-        public static string ConnectionString = "Server=.;Database=ContactsDB;User Id=sa;Password=123456;";
+        public static string ConnectionString = "Server=.;Database=Contacts3TierDB;User Id=sa;Password=1234;";
        
 
     }

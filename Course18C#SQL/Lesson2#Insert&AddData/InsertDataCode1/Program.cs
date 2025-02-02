@@ -9,7 +9,7 @@ namespace InsertDataCode1
 {
     public class Program
     {
-        static string connectionString = "Server=.;Database=ContactsDB;User Id = sa; Password = 0553481128obh";
+        static string connectionString = "Server=.;Database=ContactsDB;User Id = sa; Password = 1234";
 
         public struct stContact
         {
@@ -18,7 +18,7 @@ namespace InsertDataCode1
             public string Email { set; get; }
             public string Phone { set; get; }
             public string Address { set; get; }
-            public int CountryID { set; get; }
+            public int CountryID { set; get; } 
         }
         
 

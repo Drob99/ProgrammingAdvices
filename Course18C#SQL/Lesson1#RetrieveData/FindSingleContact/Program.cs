@@ -9,7 +9,7 @@ namespace FindSingleContact
 {
     public class Program
     {
-        static string connectionString = "Server=.;Database = ContactsDB; User ID = sa; Password = 0553481128obh";
+        static string connectionString = "Server=.;Database = ContactsDB; User ID = sa; Password = 1234";
 
         static bool FindContactByID(int ContactID, ref stContact ContactInfo)
         {

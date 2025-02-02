@@ -10,7 +10,7 @@ namespace AllImportantOperations
     internal class Program
     {
         // This is common in all operations. You will always need this line to establish a connection with your database server.
-        static string connectionString = "Server=.;Database = ContactsDB; User ID = sa; Password = 0553481128obh";
+        static string connectionString = "Server=.;Database = ContactsDB; User ID = sa; Password = 1234";
 
 
         // Part 1 : Retrieve Data

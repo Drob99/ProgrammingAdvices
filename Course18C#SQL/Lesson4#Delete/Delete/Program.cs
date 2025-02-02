@@ -9,7 +9,7 @@ namespace Delete
 {
     public class Program
     {
-        static string connectionString = "Server=.;Database=ContactsDB;User Id = sa; Password = 0553481128obh";
+        static string connectionString = "Server=.;Database=ContactsDB;User Id = sa; Password = 1234";
 
         public struct stContact
         {
@@ -56,7 +56,7 @@ namespace Delete
             SqlConnection connection = new SqlConnection(connectionString);
 
             string query = @"Delete from Contacts
-            WHERE ContactID in (" + ContactIDs + ")";
+            WHERE ContactID in (" + ContactIDs + ")"; // Normal concatenation. Without the use of parameters.
 
             SqlCommand command = new SqlCommand(query, connection);
 
@@ -78,6 +78,7 @@ namespace Delete
 
             connection.Close();
         }
+        
         public static void Main(string[] args)
         {
             // DeleteContact(7);

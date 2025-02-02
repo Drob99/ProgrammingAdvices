@@ -261,7 +261,7 @@ namespace ContactsConsolApp
 
             DataTable dataTable = clsCountry.GetAllCountries();
 
-            Console.WriteLine("Coutries Data:");
+            Console.WriteLine("Countries Data:");
 
             foreach (DataRow row in dataTable.Rows)
             {

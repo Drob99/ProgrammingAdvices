@@ -75,21 +75,119 @@ namespace Example1
             Console.WriteLine("Maximum Salary = " + MaxSalary);
         }
 
+        static void PrintSortedDataTable(DataTable dt, string sorting)
+        {
+            dt.DefaultView.Sort = sorting;
+            dt = dt.DefaultView.ToTable();
+
+            Console.WriteLine($"\n\nEmployees List Sorted By {sorting}:\n");
+            
+            PrintDataTable(dt);
+        }
+        
+        static void DeleteEmployeeGivenID(DataTable dt, int ID)
+        {
+            DataRow[] Results = dt.Select($"ID={ID}"); // filter for the ID
+
+            foreach (var ResultRow in Results) 
+            {
+                ResultRow.Delete();
+            }
+
+            // dt.AcceptChanges(); // sync with database if I am online
+
+            PrintDataTable(dt);
+        }
+
+        static void UpdateEmployeeGivenID(DataTable dt, int ID)
+        {
+            DataRow[] Results = dt.Select($"ID={ID}");
+
+            foreach (var ResultsRow in Results)
+            {
+                ResultsRow["Name"] = "Omar Abdalla";
+                ResultsRow["Country"] = "Kazakhstan";
+            }
+
+            // dt.AcceptChanges();
+
+            PrintDataTable(dt);
+        }
+
         static void Main(string[] args)
         {
             DataTable EmployeesDataTable = new DataTable();
-            EmployeesDataTable.Columns.Add("ID", typeof(int));
-            EmployeesDataTable.Columns.Add("Name",  typeof(string));
-            EmployeesDataTable.Columns.Add("Country",  typeof(string));
-            EmployeesDataTable.Columns.Add("Salary", typeof(Double));
-            EmployeesDataTable.Columns.Add("Date", typeof(DateTime));
+            //EmployeesDataTable.Columns.Add("ID", typeof(int));
+            //EmployeesDataTable.Columns.Add("Name",  typeof(string));
+            //EmployeesDataTable.Columns.Add("Country",  typeof(string));
+            //EmployeesDataTable.Columns.Add("Salary", typeof(Double));
+            //EmployeesDataTable.Columns.Add("Date", typeof(DateTime));
 
-            // Add Rows
-            EmployeesDataTable.Rows.Add(1, "Mohammed Abu-Hadhoud", "Jordan", 5000, DateTime.Now);
-            EmployeesDataTable.Rows.Add(2, "Ali Maher", "KSA", 525.5, DateTime.Now);
-            EmployeesDataTable.Rows.Add(3, "Lina Kamal", "Jordan", 730.5, DateTime.Now);
-            EmployeesDataTable.Rows.Add(4, "Fadi Jameel", "Egypt", 880, DateTime.Now);
-            EmployeesDataTable.Rows.Add(5, "Omar Mahmoud", "Lebanon", 7000, DateTime.Now);
+            DataColumn dtColumn;
+
+            // 1st column (ID)
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(int);
+            dtColumn.ColumnName = "ID";
+            dtColumn.AutoIncrement = true;
+            dtColumn.AutoIncrementSeed = 1;
+            dtColumn.AutoIncrementStep = 1;
+            dtColumn.Caption = "Employee ID";
+            dtColumn.ReadOnly = true;
+            dtColumn.Unique = true;
+            EmployeesDataTable.Columns.Add(dtColumn);
+
+            // 2nd column Name
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(string);
+            dtColumn.ColumnName = "Name";
+            dtColumn.AutoIncrement = false;
+            dtColumn.Caption = "Name";
+            dtColumn.ReadOnly = false;
+            dtColumn.Unique = false;
+            EmployeesDataTable.Columns.Add(dtColumn);
+
+            // 3rd column Country
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(string);
+            dtColumn.ColumnName = "Country";
+            dtColumn.AutoIncrement = false;
+            dtColumn.Caption = "Country";
+            dtColumn.ReadOnly = false;
+            dtColumn.Unique = false;
+            EmployeesDataTable.Columns.Add(dtColumn);
+
+            // 4th column Salary
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(Double);
+            dtColumn.ColumnName = "Salary";
+            dtColumn.AutoIncrement = false;
+            dtColumn.Caption = "Salary";
+            dtColumn.ReadOnly = false;
+            dtColumn.Unique = false;
+            EmployeesDataTable.Columns.Add(dtColumn);
+
+            // 5th column Date
+            dtColumn = new DataColumn();
+            dtColumn.DataType = typeof(DateTime);
+            dtColumn.ColumnName = "Date";
+            dtColumn.AutoIncrement = false;
+            dtColumn.Caption = "Date";
+            dtColumn.ReadOnly = false;
+            dtColumn.Unique = false;
+            EmployeesDataTable.Columns.Add(dtColumn);
+
+            // Make the ID column the primary key column.
+            DataColumn[] PrimaryKeyColumns = new DataColumn[1]; // array of data columns with number of primary keys 
+            PrimaryKeyColumns[0] = EmployeesDataTable.Columns["ID"];
+            EmployeesDataTable.PrimaryKey = PrimaryKeyColumns;
+
+            // Add Rows (If AutoIncrement put null, else decide numbers)
+            EmployeesDataTable.Rows.Add(null, "Mohammed Abu-Hadhoud", "Jordan", 5000, DateTime.Now);
+            EmployeesDataTable.Rows.Add(null, "Ali Maher", "KSA", 525.5, DateTime.Now);
+            EmployeesDataTable.Rows.Add(null, "Lina Kamal", "Jordan", 730.5, DateTime.Now);
+            EmployeesDataTable.Rows.Add(null, "Fadi Jameel", "Egypt", 880, DateTime.Now);
+            EmployeesDataTable.Rows.Add(null, "Omar Mahmoud", "Lebanon", 7000, DateTime.Now);
 
             //printing
             Console.WriteLine("\nEmployees List:\n");
@@ -119,6 +217,35 @@ namespace Example1
             Console.WriteLine("\n\nFilter Employees with ID = 1\n");
             PrintAggregateFunctions(EmployeesDataTable, "ID = 1");
 
+            //------------------------------------------------------------
+            // Sort by ID desc
+
+            PrintSortedDataTable(EmployeesDataTable, "ID Desc");
+
+            //------------------------------------------------------------
+            // Sort by name asc
+
+            PrintSortedDataTable(EmployeesDataTable, "Name ASC");
+
+            //------------------------------------------------------------
+            // Delete ID = 4
+
+            Console.WriteLine("\n\nEmployee List After Deleting ID = 4\n");
+            DeleteEmployeeGivenID(EmployeesDataTable, 4);
+
+            //------------------------------------------------------------
+            // Update ID = 5 to name Omar Abdalla
+
+            Console.WriteLine("\n\nUpdating Employee ID = 5 record:\n");
+            UpdateEmployeeGivenID(EmployeesDataTable, 5);
+
+
+            //------------------------------------------------------------
+            // Clear all records
+
+            Console.WriteLine("\n\nClearing All Records.\n");
+            EmployeesDataTable.Clear();
+            PrintDataTable(EmployeesDataTable);
 
             Console.ReadKey();
         }

@@ -9,7 +9,7 @@ namespace ParametrizedQuery
 {
     public class Program
     {
-        static string connectionString = "Server=.;Database=ContactsDB;User ID = sa; Password =0553481128obh";
+        static string connectionString = "Server=.;Database=ContactsDB;User ID = sa; Password =1234";
 
         static void PrintAllContactsWithFirstName(string FirstName)
         {
